@@ -6,7 +6,6 @@ Extract Proprietary Blobs: Required to get the binary drivers (Audio, Sensors, W
 
 bash
 ```
-cd device/motorola/mumba
 ./extract-files.sh
 ```
 # Sync
