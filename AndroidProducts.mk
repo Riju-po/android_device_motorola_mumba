@@ -8,4 +8,5 @@ PRODUCT_MAKEFILES := \
 COMMON_LUNCH_CHOICES := \
     lineage_mumba-user \
     lineage_mumba-userdebug \
-    lineage_mumba-eng
+    lineage_mumba-eng \
+    lineage_mumba-bp4a-userdebug
