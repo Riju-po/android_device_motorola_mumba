@@ -22,7 +22,6 @@ vendor/bin/ar_util_in_test_example
 vendor/bin/athdiag
 vendor/bin/audioadsprpcd
 vendor/bin/audioflacapp
-vendor/bin/awk
 vendor/bin/batch
 vendor/bin/batt_health
 vendor/bin/boringssl_self_test64

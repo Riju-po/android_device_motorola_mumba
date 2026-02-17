@@ -51,7 +51,7 @@ AB_OTA_PARTITIONS += \
 
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += \
-    $(DEVICE_PATH)/resource-overlay/device
+    $(LOCAL_PATH)/resource-overlay/device
 
 # Properties
 TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop

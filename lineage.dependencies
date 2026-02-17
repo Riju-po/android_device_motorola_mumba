@@ -1,10 +1,10 @@
 [
     {
-        "repository": "device/motorola/common",
+        "repository": "LineageOS/android_device_motorola_common",
         "target_path": "device/motorola/common"
     },
     {
-        "repository": "hardware/motorola",
+        "repository": "LineageOS/android_hardware_motorola",
         "target_path": "hardware/motorola"
     }
 ]
