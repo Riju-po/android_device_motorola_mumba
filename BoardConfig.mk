@@ -58,6 +58,14 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := true
 BOARD_USES_RECOVERY_AS_BOOT := false
 
 
+
+# =====================================================
+# Vendor Ramdisk (Kernel Modules)
+# =====================================================
+
+BOARD_VENDOR_RAMDISK_FRAGMENTS := vendor_ramdisk
+BOARD_VENDOR_RAMDISK_FRAGMENT.vendor_ramdisk.KERNEL_MODULE_DIRS := vendor_dlkm/lib/modules
+
 # =====================================================
 # Kernel (Prebuilt Bring-up Mode)
 # =====================================================
@@ -73,7 +81,7 @@ BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
 BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600
 
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/kernel
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Image.gz-dtb
 
 
 
@@ -124,15 +132,15 @@ DEVICE_MATRIX_FILE := device/motorola/mumba/vintf/compatibility_matrix.xml
 # AVB (Android Verified Boot)
 # =====================================================
 
-BOARD_AVB_ENABLE := true
-BOARD_AVB_MAKE_VBMETA_IMAGE := true
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
-BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
-BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
+# BOARD_AVB_ENABLE := true
+# BOARD_AVB_MAKE_VBMETA_IMAGE := true
+# BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
+# BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+# BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
+# BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
-BOARD_AVB_VBMETA_SYSTEM := system system_ext product
-BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
-BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 1
-BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+# BOARD_AVB_VBMETA_SYSTEM := system system_ext product
+# BOARD_AVB_VBMETA_SYSTEM_KEY_PATH := external/avb/test/data/testkey_rsa2048.pem
+# BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
+# BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 1
+# BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2

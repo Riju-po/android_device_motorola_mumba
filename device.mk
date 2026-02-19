@@ -23,7 +23,7 @@ $(call inherit-product-if-exists, vendor/motorola/mumba/mumba-vendor.mk)
 # Device identity
 PRODUCT_DEVICE := mumba
 PRODUCT_BRAND := motorola
-PRODUCT_MODEL := Moto G57
+PRODUCT_MODEL := Moto G57 Power
 PRODUCT_MANUFACTURER := motorola
 
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
@@ -33,7 +33,8 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR)/etc/fstab.qcom \
     $(LOCAL_PATH)/rootdir/etc/init.target.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.target.rc \
     $(LOCAL_PATH)/rootdir/etc/init.mmi.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.mmi.rc \
-    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc
+    $(LOCAL_PATH)/rootdir/etc/init.qcom.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.qcom.rc \
+    $(LOCAL_PATH)/rootdir/etc/ueventd.rc:$(TARGET_COPY_OUT_VENDOR)/etc/ueventd.rc
 
 # A/B OTA partitions
 AB_OTA_PARTITIONS += \
@@ -43,6 +44,7 @@ AB_OTA_PARTITIONS += \
     recovery \
     vbmeta \
     vbmeta_system \
+    vbmeta_vendor \
     vendor_boot \
     system \
     system_ext \
@@ -56,10 +58,12 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/resource-overlay/device
 
 # Properties
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-TARGET_PRODUCT_PROP += $(DEVICE_PATH)/product.prop
-TARGET_SYSTEM_EXT_PROP += $(DEVICE_PATH)/system_ext.prop
-TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
+
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/system.prop:$(TARGET_COPY_OUT_SYSTEM)/system.prop \
+    $(DEVICE_PATH)/product.prop:$(TARGET_COPY_OUT_PRODUCT)/product.prop \
+    $(DEVICE_PATH)/system_ext.prop:$(TARGET_COPY_OUT_SYSTEM_EXT)/system_ext.prop \
+    $(DEVICE_PATH)/vendor.prop:$(TARGET_COPY_OUT_VENDOR)/vendor.prop
 
 # Audio
 PRODUCT_COPY_FILES += \
@@ -98,12 +102,9 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # VINTF
-DEVICE_MANIFEST_FILE := device/motorola/mumba/vintf/manifest.xml
+DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/vintf/manifest.xml
 
 # Explicitly copy the manifest... DELETED
 
 
-# =====================================================
-# Force Shipping API Level to bypass VINTF frozen/legacy checks
-# =====================================================
-PRODUCT_SHIPPING_API_LEVEL := 36
+
