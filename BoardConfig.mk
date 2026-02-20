@@ -25,7 +25,7 @@ TARGET_2ND_CPU_VARIANT := generic
 # =====================================================
 
 DEVICE_PATH := device/motorola/mumba
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/vendor_ramdisk/etc/fstab.qcom
 
 
 # =====================================================
@@ -77,11 +77,12 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 
 
 BOARD_KERNEL_CMDLINE := console=ttyMSM0 loglevel=6 log_buf_len=256K androidboot.selinux=permissive
+override BOARD_SEPOLICY_VERS := 202404
 
 # Partition Sizes (100MB Boot/VendorBoot, 8MB InitBoot - Safe Defaults)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
 BOARD_INIT_BOOT_IMAGE_PARTITION_SIZE := 8388608
-BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 104857600
+BOARD_VENDOR_BOOTIMAGE_PARTITION_SIZE := 134217728
 
 
 TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Image.gz-dtb
@@ -114,8 +115,10 @@ BOARD_USES_METADATA_PARTITION := true
 # Filesystem Types
 # =====================================================
 
-BOARD_SYSTEMIMAGE_PARTITION_TYPE := erofs
-BOARD_VENDORIMAGE_PARTITION_TYPE := erofs
+BOARD_SYSTEMIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_SYSTEM_EXTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE := erofs
+BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_VENDOR_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 BOARD_SYSTEM_DLKMIMAGE_FILE_SYSTEM_TYPE := erofs
 
@@ -125,9 +128,16 @@ BOARD_USES_SYSTEM_DLKMIMAGE := true
 TARGET_COPY_OUT_VENDOR := vendor
 TARGET_COPY_OUT_VENDOR_DLKM := vendor_dlkm
 TARGET_COPY_OUT_SYSTEM_DLKM := system_dlkm
+TARGET_COPY_OUT_PRODUCT := product
+TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 
-DEVICE_MANIFEST_FILE := device/motorola/mumba/vintf/manifest.xml
-DEVICE_MATRIX_FILE := device/motorola/mumba/vintf/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/vintf/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/vintf/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/vintf/framework_compatibility_matrix.xml
+BOARD_SEPOLICY_IGNORE_NEVERALLOWS := true
+SELINUX_IGNORE_NEVERALLOWS := true
+TARGET_SEPOLICY_IGNORE_NEVERALLOWS := true
+BUILD_BROKEN_TREBLE_SYSPROP_NEVERALLOW := true
 
 
 
@@ -147,3 +157,10 @@ DEVICE_MATRIX_FILE := device/motorola/mumba/vintf/compatibility_matrix.xml
 # BOARD_AVB_VBMETA_SYSTEM_ALGORITHM := SHA256_RSA2048
 # BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX := 1
 # BOARD_AVB_VBMETA_SYSTEM_ROLLBACK_INDEX_LOCATION := 2
+
+
+# =====================================================
+# Filesystem Configuration
+# =====================================================
+
+TARGET_FS_CONFIG_GEN += device/motorola/mumba/config.fs

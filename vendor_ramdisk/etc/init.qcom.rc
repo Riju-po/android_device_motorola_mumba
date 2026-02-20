@@ -467,6 +467,8 @@ on property:persist.vendor.qcomsysd.enabled=0
 service vendor.ssr_setup /system/vendor/bin/ssr_setup
     oneshot
     disabled
+    user root
+    group root
 
 service vendor.ss_ramdump /system/vendor/bin/subsystem_ramdump
     class main
@@ -590,6 +592,7 @@ service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     #   user wifi
     #   group wifi inet keystore
     class main
+    user root
     socket wigig/wpa_wigig0 dgram 660 wifi wifi
     disabled
     oneshot
@@ -625,41 +628,57 @@ service dhcpcd_wlan0 /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service dhcpcd_bond0 /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service dhcpcd_p2p /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service dhcpcd_wigig0 /system/bin/dhcpcd -ABKLG
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service iprenew_wlan0 /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service iprenew_bond0 /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service iprenew_p2p /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service iprenew_wigig0 /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service ptt_socket_app /system/vendor/bin/ptt_socket_app -d
     class main
@@ -698,11 +717,15 @@ service dhcpcd_bt-pan /system/bin/dhcpcd -BKLG
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service iprenew_bt-pan /system/bin/dhcpcd -n
     class late_start
     disabled
     oneshot
+    user root
+    group root
 
 service ssgqmigd /vendor/bin/ssgqmigd
     class late_start
@@ -743,6 +766,7 @@ service qti-testscripts /system/bin/sh /product/etc/init.qcom.testscripts.sh
 
 service wifi-sdio-on /vendor/bin/init.qcom.sdio.sh
     class late_start
+    user root
     group wifi inet
     disabled
     oneshot
@@ -833,6 +857,8 @@ service vendor.ssr_diag /system/vendor/bin/ssr_diag
 service qlogd /system/xbin/qlogd
     socket qlogd stream 0662 system system
     class main
+    user system
+    group system
     disabled
 on property:persist.sys.qlogd=1
     start qlogd
@@ -919,6 +945,7 @@ on property:ro.vendor.radio.noril=*
 
 service vendor.power_off_alarm /vendor/bin/power_off_alarm
     class core
+    user system
     group system
     disabled
     oneshot
@@ -942,6 +969,7 @@ on property:vendor.chre.enabled=0
 
 service bugreport /system/bin/dumpstate -d -p -B -z -o /data/user_de/0/com.android.shell/files/bugreports/bugreport
     class main
+    user root
     disabled
     oneshot
     keycodes 114 115 116

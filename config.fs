@@ -1,0 +1,14 @@
+[AID_VENDOR_PWRIC]
+value: 2950
+
+[AID_VENDOR_TCMD]
+value: 2951
+
+[AID_VENDOR_RFS]
+value: 2952
+
+[AID_VENDOR_MOD]
+value: 2953
+
+[AID_VENDOR_FINGERP]
+value: 2954

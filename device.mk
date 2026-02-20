@@ -34,7 +34,12 @@ PRODUCT_GMS_CLIENTID_BASE := android-motorola
 # NOTE: Using TARGET_COPY_OUT_VENDOR to avoid Soong neverallow error for root install
 # Vendor ramdisk files (Handled by rootdir/Android.mk)
 PRODUCT_PACKAGES += \
-    mumba_vendor_ramdisk_init \
+    mumba_vendor_ramdisk_fstab.qcom \
+    mumba_vendor_ramdisk_init.mmi.rc \
+    mumba_vendor_ramdisk_init.qcom.rc \
+    mumba_vendor_ramdisk_init.target.rc \
+    mumba_vendor_ramdisk_ueventd.rc \
+    android.hidl.allocator@1.0-service \
 
 # A/B OTA partitions
 AB_OTA_PARTITIONS += \
@@ -102,7 +107,7 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
 # VINTF
-DEVICE_MANIFEST_FILE += $(LOCAL_PATH)/vintf/manifest.xml
+
 
 # Explicitly copy the manifest... DELETED
 

@@ -1,0 +1,45 @@
+<compatibility-matrix version="8.0" type="framework">
+    <hal format="hidl" optional="true">
+        <name>android.hidl.allocator</name>
+        <transport>hwbinder</transport>
+        <version>1.0</version>
+        <interface>
+            <name>IAllocator</name>
+            <instance>ashmem</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>motorola.hardware.power</name>
+        <version>2</version>
+        <interface>
+            <name>IMdpfExt</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.nxp.nxpnfc_aidl</name>
+        <interface>
+            <name>INxpNfc</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.qti.hardware.wifidisplaysession_aidl</name>
+        <interface>
+            <name>IWifiDisplaySession</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IWifiDisplaySessionAudioTrack</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IWifiDisplaySessionImageTrack</name>
+            <instance>default</instance>
+        </interface>
+        <interface>
+            <name>IWifiDisplaySessionVideoTrack</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
+</compatibility-matrix>

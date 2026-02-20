@@ -1,8 +1,18 @@
 LOCAL_PATH := $(call my-dir)
 
-include $(CLEAR_VARS)
-LOCAL_MODULE := mumba_vendor_ramdisk_init
-LOCAL_MODULE_CLASS := ETC
-LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_RAMDISK)/etc
-LOCAL_SRC_FILES := etc/init.qcom.rc etc/init.mmi.rc etc/init.target.rc etc/fstab.qcom etc/ueventd.rc
-include $(BUILD_PREBUILT)
+VRAMDISK_ETC_FILES := \
+    etc/fstab.qcom \
+    etc/init.mmi.rc \
+    etc/init.qcom.rc \
+    etc/init.target.rc \
+    etc/ueventd.rc
+
+$(foreach f, $(VRAMDISK_ETC_FILES), \
+    $(eval include $(CLEAR_VARS)) \
+    $(eval LOCAL_MODULE := mumba_vendor_ramdisk_$(notdir $(f))) \
+    $(eval LOCAL_MODULE_CLASS := ETC) \
+    $(eval LOCAL_MODULE_PATH := $(PRODUCT_OUT)/vendor_ramdisk/etc) \
+    $(eval LOCAL_SRC_FILES := $(f)) \
+    $(eval LOCAL_MODULE_STEM := $(notdir $(f))) \
+    $(eval include $(BUILD_PREBUILT)) \
+)
