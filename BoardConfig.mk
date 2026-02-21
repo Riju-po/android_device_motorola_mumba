@@ -56,7 +56,8 @@ BOARD_USES_RECOVERY_AS_BOOT := false
 # Kernel (Prebuilt Bring-up Mode)
 # =====================================================
 
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Image.gz-dtb
+TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilts/Image
+TARGET_PREBUILT_DTB := $(DEVICE_PATH)/prebuilts/dtb
 
 BOARD_KERNEL_CMDLINE := console=ttyMSM0 loglevel=6 log_buf_len=256K androidboot.selinux=permissive
 BOARD_KERNEL_PAGESIZE := 4096
