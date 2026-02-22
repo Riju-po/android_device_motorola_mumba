@@ -13,7 +13,7 @@ repo sync
 
 # Build
 ```
-source build/envsetup.sh
-lunch lineage_mumba-userdebug
+. build/envsetup.sh
+lunch lineage_mumba-bp4a-userdebug
 mka bacon
 ```

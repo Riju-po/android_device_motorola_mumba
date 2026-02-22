@@ -1,14 +1,82 @@
-[AID_VENDOR_PWRIC]
-value: 2950
+# Vendor-specific Android IDs (AIDs) for Motorola mumba
+# Extracted from stock firmware vendor/etc/passwd and vendor/etc/group
 
-[AID_VENDOR_TCMD]
-value: 2951
+# Qualcomm vendor AIDs
+[AID_VENDOR_QTI_DIAG]
+value: 2901
+
+[AID_VENDOR_QDSS]
+value: 2902
 
 [AID_VENDOR_RFS]
-value: 2952
+value: 2903
 
-[AID_VENDOR_MOD]
-value: 2953
+[AID_VENDOR_RFS_SHARED]
+value: 2904
+
+[AID_VENDOR_ADPL_ODL]
+value: 2905
+
+[AID_VENDOR_QRTR]
+value: 2906
+
+[AID_VENDOR_THERMAL]
+value: 2907
+
+[AID_VENDOR_FASTRPC]
+value: 2908
+
+[AID_VENDOR_QTR]
+value: 2909
+
+[AID_VENDOR_NXP_STRONGBOX]
+value: 2910
+
+[AID_VENDOR_NXP_WEAVER]
+value: 2911
+
+[AID_VENDOR_SSGTZD]
+value: 2912
+
+[AID_VENDOR_THALES_STRONGBOX]
+value: 2913
+
+[AID_VENDOR_QCC]
+value: 2914
+
+[AID_VENDOR_NXP_AUTHSECRET]
+value: 2915
+
+[AID_VENDOR_THALES_WEAVER]
+value: 2916
+
+[AID_VENDOR_THALES_AUTHSECRET]
+value: 2917
+
+# Motorola vendor AIDs
+[AID_VENDOR_BRIDGE_RW]
+value: 5001
+
+[AID_VENDOR_PWRIC]
+value: 5101
+
+[AID_VENDOR_TCMD]
+value: 5104
+
+[AID_VENDOR_DBVC]
+value: 5114
 
 [AID_VENDOR_FINGERP]
-value: 2954
+value: 5115
+
+[AID_VENDOR_DTV]
+value: 5119
+
+[AID_VENDOR_MOD]
+value: 5120
+
+[AID_VENDOR_PROD_PERSIST]
+value: 5121
+
+[AID_VENDOR_APUSYS]
+value: 5200

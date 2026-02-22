@@ -31,6 +31,10 @@ QCOM_BOARD_PLATFORMS += parrot
 TARGET_BOOTLOADER_BOARD_NAME := mumba
 BOARD_SHIPPING_API_LEVEL := 202404
 BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
+BUILD_BROKEN_VENDOR_PROPERTY_NAMESPACE := true
+
+# Vendor-specific AIDs (users/groups) for Qualcomm/Motorola init.rc files
+TARGET_FS_CONFIG_GEN := device/motorola/mumba/config.fs
 
 
 # =====================================================
