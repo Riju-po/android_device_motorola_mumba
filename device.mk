@@ -40,6 +40,7 @@ AB_OTA_PARTITIONS += \
     boot \
     dtbo \
     init_boot \
+    recovery \
     vbmeta \
     vbmeta_system \
     vendor_boot \
