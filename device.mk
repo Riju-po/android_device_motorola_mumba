@@ -81,8 +81,6 @@ PRODUCT_COPY_FILES += \
 
 # Sensors
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf \
-    $(LOCAL_PATH)/configs/sensors/sns_reg_config:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sns_reg_config \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/configs/sensors/config/,$(TARGET_COPY_OUT_VENDOR)/etc/sensors/config)
 
 # Keylayout
