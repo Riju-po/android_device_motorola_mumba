@@ -35,6 +35,10 @@ PRODUCT_PACKAGES += \
     mumba_vendor_ramdisk_init.target.rc \
     mumba_vendor_ramdisk_ueventd.rc
 
+# Recovery init
+PRODUCT_PACKAGES += \
+    init.recovery.qcom.rc
+
 # A/B OTA partitions
 AB_OTA_PARTITIONS += \
     boot \

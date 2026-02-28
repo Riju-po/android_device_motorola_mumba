@@ -57,6 +57,10 @@ BOARD_DTBOIMG_PARTITION_SIZE := 24117248
 BOARD_VENDOR_RAMDISK_USE_LZ4 := true
 BOARD_USES_RECOVERY_AS_BOOT := false
 
+# Recovery
+TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
+TARGET_RECOVERY_WIPE := $(DEVICE_PATH)/recovery/recovery.wipe
+
 
 # =====================================================
 # Kernel (Prebuilt Bring-up Mode)
