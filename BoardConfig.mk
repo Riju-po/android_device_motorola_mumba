@@ -73,6 +73,12 @@ BOARD_KERNEL_CMDLINE := console=ttyMSM0 loglevel=6 log_buf_len=256K androidboot.
 BOARD_KERNEL_PAGESIZE := 4096
 BOARD_RAMDISK_USE_LZ4 := true
 
+# Kernel Modules for vendor_boot
+BOARD_VENDOR_KERNEL_MODULES := $(wildcard $(DEVICE_PATH)/prebuilts/modules/*.ko)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES := $(BOARD_VENDOR_KERNEL_MODULES)
+BOARD_VENDOR_RAMDISK_KERNEL_MODULES_LOAD := $(DEVICE_PATH)/modules.load.vendor_boot
+BOARD_VENDOR_RAMDISK_RECOVERY_KERNEL_MODULES_LOAD := $(DEVICE_PATH)/modules.load.recovery
+
 
 # =====================================================
 # Partition Sizes (from stock firmware images)
